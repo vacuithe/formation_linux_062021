@@ -70,5 +70,36 @@ $ uname -a
   $ telinit [numero]
   ```
 
+> SystemdD
+
+- RUNLEVEL
+
+  Run level 0 => poweroff.target
+
+  Run level 1 => rescue.target
+
+  Run level 3 => multi-user.target
+
+  Run level 5 => graphical.target
+
+  Run level 6 => reboot.target
+
+- Interroger runlevel
+
+    ```
+    $ systemctl get-default
+    ```
+
+- Définir le run level par défaut
+
+    ```
+    $ systemctl set-default multi-user.target
+    ```
+
+- Changer de runlevel
+
+   ```
+   systemctl isolate rescue.target
+   ```
 
 ## SUDO
