@@ -162,6 +162,8 @@ https://doc.ubuntu-fr.org/creer_un_service_avec_systemd
 
 https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/index
 
+https://doc.ubuntu-fr.org/lvm
+
 - LVM est un ensemble d’outils de l’espace utilisateur Linux pour fournir des commodités de gestion du stockage (volumes).
 
 - LVM (Logical Volume Manager) répond principalement aux besoins :
@@ -222,3 +224,7 @@ mount -a
 # Démontage d'un FS
 umount /mydata 
 
+# Commande affichage FS / LV /montage
+$ lsblk
+$ df -hT
+```
