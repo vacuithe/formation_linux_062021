@@ -102,4 +102,40 @@ $ uname -a
    systemctl isolate rescue.target
    ```
 
+## Services
+
+> SYSTEMD
+
+- Interroger un service :
+
+    ```
+    $ systemctl status ssh
+    ```
+
+- Activer ou désactiver un service au boot :
+
+   ```
+   $ systemctl enable [service]
+   $ systemctl disable [service]
+   ```
+
+   > Anciennement : chkconfig chez systemv
+
+- On peut *masquer* un service : ne sera plus visible donc plus activable même manuellement
+
+   ```
+   $ systemctl mask [service]
+   ```
+
+- Creation de service 
+
+    - Deux arbos : 
+        -   /etc/systemd/system/ => services custom
+        -   /lib/systemd/system/ => services système
+
+https://access.redhat.com/documentation/fr-fr/red_hat_enterprise_linux/7/html/system_administrators_guide/sect-managing_services_with_systemd-unit_files
+
+https://doc.ubuntu-fr.org/creer_un_service_avec_systemd
+
+
 ## SUDO
