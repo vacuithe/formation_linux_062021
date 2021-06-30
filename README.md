@@ -138,4 +138,87 @@ https://access.redhat.com/documentation/fr-fr/red_hat_enterprise_linux/7/html/sy
 https://doc.ubuntu-fr.org/creer_un_service_avec_systemd
 
 
-## SUDO
+> SYSTEMV (va être abandonné)
+
+ - Arbo qui contient tous les scripts de service à exécuter 
+
+    ```
+    $ ls -l /etc/init.d
+    ```
+
+ - Arbos correspondant aux runlevels qui contiennent des liens pour arrêter ou démarrer les services
+   ```
+   # ls -l /etc/rc
+   rc0.d/ rc1.d/ rc2.d/ rc3.d/ rc4.d/ rc5.d/ rc6.d/ rcS.d/ 
+   ```
+
+ - Comande pour activer:desactiver les services :
+   ```
+   chkconfig
+   ```
+
+
+## Partitionnement LVM
+
+https://access.redhat.com/documentation/en-us/red_hat_enterprise_linux/7/html/logical_volume_manager_administration/index
+
+- LVM est un ensemble d’outils de l’espace utilisateur Linux pour fournir des commodités de gestion du stockage (volumes).
+
+- LVM (Logical Volume Manager) répond principalement aux besoins :
+
+    - d’évolutivité des capacités de stockage
+    - tout en assurant la disponibilité du service.
+
+
+1. PV
+2. VG
+3. LV
+4. FS
+5. MOUNT
+
+
+Ex commandes LVM2 :
+
+```bash
+# Physical volumes
+$ pvdisplay
+$ pvs
+# Volume group
+vgdisplay
+vgs
+# Logical volumes
+lvdisplay
+lvs
+# Commande management lv
+lvchange --help
+lvextend --help
+lvresize --help
+lvresize -L+2G /dev/debian-vg/root
+lvextend -L5G /dev/debian-vg/root 
+lvextend -L5G /dev/debian-vg/home 
+lvextend -L3G /dev/debian-vg/home 
+# Commande FS (pour synchroniser la taille avec le LV)
+resize2fs /dev/mapper/debian--vg-home
+resize2fs /dev/mapper/debian--vg-root
+# Commande interrogation montage FS -> pt de montage
+df -hT
+
+# Commande de création d'un LV
+lvcreate --help
+lvcreate -n data -L2G debian-vg 
+lvs
+# Commande de création d'un FS sur un LV
+mkfs.ext4 /dev/debian-vg/data 
+# Création du point de montage (répertoire)
+mkdir /mydata
+# Montage du FS sur le point de montage
+mount /dev/debian-vg/data /mydata
+# Persistence du montage pour reboot
+ls -l /etc/fstab 
+vi /etc/fstab 
+/dev/mapper/debian--vg-data   /mydata    ext4   defaults  0 2
+# /!\ Penser à vérifier la syntaxe du fichier /etc/fstab 
+mount -a
+# Démontage d'un FS
+umount /mydata 
+
