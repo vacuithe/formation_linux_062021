@@ -294,7 +294,9 @@ $ df -hT
   - Traiter l'output d'une premiere commande dans une seconde commande
   ```bash
   $ ps -ef | grep pierre | awk '{ print $2}'
+  $ cat /etc/passwd | awk -F ':' '{ print "Home utilisateur : " $6}'
   $ cat /etc/passwd | cut -d ':' -f 6
+  $ cat /etc/passwd | cut -d ':' -f 1,6
   ```
 
 
