@@ -258,3 +258,25 @@ $ df -hT
 
 - Editeur vim 
   - On peut créer un fichier *.vimrc* dans sa home pour customiser l'éditeur
+  - Voir pdf memento
+
+- Recherche :
+  - find
+    ```
+    $ find / -user stagiaire -type d -name "appli1*"
+    $ find / -type f -size +30M
+    $ find /home/pierre -type f -name "p*" -exec ls -l {} \;
+    $ find /home/pierre -type f -name "p*" -exec rm {} \;
+    $ find / -perm 777 -type f
+    ```
+
+- Sortie output et redicection
+  - stdin : clavier
+  - stdout : sortie standard (1)
+  - stderr : sortie d'erreur (2)
+
+  - redirection : 
+    ```
+    > : redirige dans un fichier (écrasement)
+    >> : redirige en fin fin de fichier (pas d'écrasement)
+
