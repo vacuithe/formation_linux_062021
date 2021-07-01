@@ -348,3 +348,11 @@ $ df -hT
   - Setgid: 2000 (héritage du groupe proprietaire pour tous les éléments créés sous le répertoire)
   - Setuid: 4000 (donne les droits du owner du fichier/binaire/script le temps de l'exécution)
   - Stickybit : 1000 (positionné sur un répertoire, les users qui peuvent accèder à ce répertoire ne pourront supprimer que les éléments leur appartenant)
+
+
+  - umask : positionne les droits par défaut à la création d'un fichier/repertoire
+    - Pour un fichier : on part des droits max 666 et on retranche le umask 
+      - 0666 - 0022 = 0644
+    - Pour répertoire : on part des droits max 777 et on retranche le umask
+      - 0777 - 0022 = 0755
+    - Les umask doivent être créés dans des fichiers d'environnement pour être chargé automatiquement sinon perte à la deconnexion.
