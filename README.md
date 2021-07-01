@@ -228,3 +228,33 @@ umount /mydata
 $ lsblk
 $ df -hT
 ```
+
+
+## SHELL - COMMANDES UNIX
+
+ - Shell : interface en mode texte entre le noyau Linux et les utilisateurs
+  - Plusieurs shell :
+    - sh
+    - ksh
+    - bash (standard Linux Server)
+    - zsh
+
+- Invite de commande :
+  
+  ```
+  $ : pas de pouvoir particulier
+  # : root (admin)
+  ~ : home directory
+  clear : clean ecran
+  ```
+
+- Commandes usuels voir pdf
+
+- commandes de comparaisons 
+
+   - diff
+   - sdiff
+   - vimdiff
+
+- Editeur vim 
+  - On peut créer un fichier *.vimrc* dans sa home pour customiser l'éditeur
