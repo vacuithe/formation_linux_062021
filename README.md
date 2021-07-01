@@ -376,4 +376,21 @@ $ df -hT
   - SSH socks proxy
 
 
-  ## Gestionnaire packages:
+## Gestionnaire packages:
+
+- Gestionnaire de package :
+  - Debian : apt
+    - conf : /etc/apt => fichiers contenant les clés gpgp et les url des sources des repos à suivre
+  - RedHat : yum et maintenant dnf (successeur => lié à python3)
+    - conf : /etc/yum.repo.d
+
+- Package :
+  - Debian : .deb  => dpkg
+
+    - On peut interroger le contenu d'un package ou connaitre la package associé à un package :
+      ```bash
+      $ dpkg -S /usr/bin/ssh
+      $ dpkg -L openssh-client
+      ```
+
+  - RedHat : .rpm  => rpm
