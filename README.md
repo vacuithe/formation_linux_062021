@@ -299,6 +299,24 @@ $ df -hT
   $ cat /etc/passwd | cut -d ':' -f 1,6
   ```
 
+- Environnement utilisateur :
 
+  - Un ensemble de fichiers d'environnements sont chargé par automatiquement
+    - /etc/profile (fichier d'environnement commun à tous les users) => au login-shell
+    - ~/.profile => chargé au login-shell
+    - ~/.bashrc => chargé au non-login shell
 
+  - On peut créer des fichiers d'environnement qu'il faut sourcer manuellement
+    ```bash
+    $ source .monenv
+    $ . ~/.monenv
+    ```
 
+  - env : lister ses variables d'environnement
+  - echo $PATH : voir le contenu d'une variable 
+  - créer une variable : debug=test
+  - creer une variable d'environnement : export DEBUG=test
+
+    > Penser à les créer dans les fichier de profile pour persister l'info
+    
+    > /!\ Modification de la variable PATH : export PATH=$PATH:/tmp:/home/formation (bien mettre le premier contenu $PATH)
