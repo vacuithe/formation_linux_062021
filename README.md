@@ -394,3 +394,25 @@ $ df -hT
       ```
 
   - RedHat : .rpm  => rpm
+
+- En entreprise, on dispoe d'un serveur repo à l'intérieur du réseau. 
+  - Les serveurs se synchronisent sur celui-ci plutôt que directement vers internet
+
+
+## Archives 
+
+- Grouper un ensemble de fichier :
+  - améliore les perf pour transfert réseau
+  - garantie l'intégrité des sources
+  
+- tar 
+  - creation : tar cvf archive.tar dossier
+  - visualisation : tar tvf archive.tar
+  - extraction : tar xvf archive.tar
+
+- compression : en plus de l'archivage
+  - plusieurs type de compression : gz, bzip2, xz
+    - tar czvf
+    - tar cJvf
+
+- /!\ au chemin dans l'archive (par défaut "/" est enlevé)
