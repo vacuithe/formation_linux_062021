@@ -318,5 +318,33 @@ $ df -hT
   - creer une variable d'environnement : export DEBUG=test
 
     > Penser à les créer dans les fichier de profile pour persister l'info
-    
+
     > /!\ Modification de la variable PATH : export PATH=$PATH:/tmp:/home/formation (bien mettre le premier contenu $PATH)
+
+
+## Utilisateur et droits
+
+- 3 fichiers : 
+  - /etc/passwd
+  - /etc/group
+  - /etc/shadow
+
+- UID utilisateur : 0 à 999 réservé systeme
+
+- useradd, usermod, userdell (/!\ : attention avec usermod et ajout de groupe :  usermod -aG)
+- groupadd, groupmod, groupdel
+- passwd
+
+- Droits :
+
+  - rwx => 7
+    - r = 4
+    - w = 2
+    - x = 1
+  - chmod => commande de changement des droits
+    ```bash
+    # chmod 754 fichier
+    ```
+  - Setgid: 2000 (héritage du groupe proprietaire pour tous les éléments créés sous le répertoire)
+  - Setuid: 4000 (donne les droits du owner du fichier/binaire/script le temps de l'exécution)
+  - Stickybit : 1000 (positionné sur un répertoire, les users qui peuvent accèder à ce répertoire ne pourront supprimer que les éléments leur appartenant)
