@@ -356,3 +356,24 @@ $ df -hT
     - Pour répertoire : on part des droits max 777 et on retranche le umask
       - 0777 - 0022 = 0755
     - Les umask doivent être créés dans des fichiers d'environnement pour être chargé automatiquement sinon perte à la deconnexion.
+
+
+## Protocole SSH
+
+  - Serveur : 
+    - openssh-server
+    - systemctl status sshd
+    - conf : /etc/ssh/sshd_config
+
+  - Clés ssh :
+    - client : ~/.ssh/id_ed22519
+               ~/.ssh/id_ed22519.pub
+               ~/.ssg/config (sauvegarde de connexion ssh)
+
+    - Serveur : ~/.ssh/authorized_keys (/!\ au proprietaire et aux droits)
+
+  - X forwarding => deport d'affichage
+  - SSH socks proxy
+
+
+  ## Gestionnaire packages:

@@ -18,7 +18,7 @@
    $ mount -a
 4. Créer un groupe myapp (groupadd)
    ```bash
-   groupadd myapp
+   $ groupadd myapp
    ```
 
 5. Créer deux users:
@@ -33,7 +33,22 @@
     drwxrwsr-x   3 root myapp  4096 juil.  1 14:09 myapp
     ```
     ```bash
-    chmod 2755 /myapp
+    $ chown root:myapp /myapp
+    $ chmod 2750 /myapp
     ```
 
 7. ACL 
+
+  - installation du package :
+    ```bash
+    $ apt install acl
+    ```
+  - interroger les acl d'un répertoire :
+    ```bash
+    $ getfacl /myapp
+    ```
+  - positionner des acl sur un répertoire :
+    ```bash
+    $ setfacl -Rm u:dev02:rwx /myapp
+    $ setfacl -Rm u:dev01:r-x /myapp
+    ```
