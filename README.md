@@ -270,8 +270,8 @@ $ df -hT
     $ find / -perm 777 -type f
     ```
 
-- Sortie output et redicection
-  - stdin : clavier
+- Sortie output et redirection
+  - stdin : clavier (0)
   - stdout : sortie standard (1)
   - stderr : sortie d'erreur (2)
 
@@ -279,13 +279,24 @@ $ df -hT
     ```
     > : redirige dans un fichier (écrasement)
     >> : redirige en fin fin de fichier (pas d'écrasement)
+    < : stdind
     ---
     2> /dev/null : rediriger la sortie d'erreur dans une poubelle
     1> /root/output 2>&1 : rediriger la sortie d'erreur avec la sortie standard
+    wc -l < fichier  : injecter fichier comme stdin dans la commande wc
     ---
     tee : affiche les output ET redirige dans un fichier
     # find / -perm 755 -type f 2>&1 | tee -a /monfichier.log
     ```
+
+- Pipe, tube : | 
+
+  - Traiter l'output d'une premiere commande dans une seconde commande
+  ```bash
+  $ ps -ef | grep pierre | awk '{ print $2}'
+  $ cat /etc/passwd | cut -d ':' -f 6
+  ```
+
 
 
 
