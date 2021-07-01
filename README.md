@@ -279,4 +279,13 @@ $ df -hT
     ```
     > : redirige dans un fichier (écrasement)
     >> : redirige en fin fin de fichier (pas d'écrasement)
+    ---
+    2> /dev/null : rediriger la sortie d'erreur dans une poubelle
+    1> /root/output 2>&1 : rediriger la sortie d'erreur avec la sortie standard
+    ---
+    tee : affiche les output ET redirige dans un fichier
+    # find / -perm 755 -type f 2>&1 | tee -a /monfichier.log
+    ```
+
+
 
