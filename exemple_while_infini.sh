@@ -1,5 +1,17 @@
 # Boucle while infinie :
 # Creation d'un fichier flag pour manager la boucle while
+
+# declarer une fonction en cas de signal SIGINT
+catchsigint() {
+  echo "Signal CTRL+C recu"
+  rm ficlog.log
+  exit 1
+}
+
+# Utilisation commande trap pour traiter le signal SIGINT (kill -2 ou CTRL+C)
+trap catchsigint SIGINT
+
+
 touch run.lock
 while true
 do

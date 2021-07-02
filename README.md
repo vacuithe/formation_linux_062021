@@ -416,3 +416,13 @@ $ df -hT
     - tar cJvf
 
 - /!\ au chemin dans l'archive (par défaut "/" est enlevé)
+
+
+## Gestion des processus
+
+ - Chaque commande shell, binaire, script ouvre un processus
+ - On peut envoyer des signaux aux processus
+
+ ```bash
+ $ kill -l
+ ```
