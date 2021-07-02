@@ -471,8 +471,40 @@ $ df -hT
   - repertoire de conf : /etc/logrotate.d/*
 
 
-- Mécanique de log implément&e par systemd : journald
+- Mécanique de log implémentée par systemd : journald
+  - Se marie bien avec les logs de services
   - /etc/systemd/journald.conf
   - commande : journalctl
- 
 
+     ```bash
+     $ journalctl --since "2021-07-02 12:00:00" --until "2021-07-02 12:30:00" -u apache2
+    ``` 
+
+## Elevation de privilèges
+
+- SUDO
+  - audit des commandes lancé via sudo
+  - ne pas divulguer les mots de passe
+  - configuration par user, group, type de commandes
+  - /!\ utiliser visudo pour l'édition pour éviter les erreur de syntaxe
+
+  - /etc/sudoers
+  - /etc/sudoers.d/*
+
+  ```ini
+  # User alias specification
+  User_Alias DEVELOP = dev01, dev02
+
+  # Cmnd alias specification
+  Cmnd_Alias DEVELOP_CMD = /usr/bin/bash /home/pierre/formation/case.sh
+  Cmnd_Alias DEVELOP_CMD2 =  /usr/bin/systemctl * apache2
+
+  # User privilege specification
+  root	ALL=(ALL:ALL) ALL
+
+  # Allow members of group sudo to execute any command
+  %sudo	ALL=(ALL:ALL) ALL
+
+  DEVELOP ALL=(pierre:pierre) DEVELOP_CMD
+  DEVELOP ALL=(root:root) DEVELOP_CMD2
+  ```
