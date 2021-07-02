@@ -426,3 +426,27 @@ $ df -hT
  ```bash
  $ kill -l
  ```
+
+ - Lister les process : ps 
+ 
+ ```bash
+ $ ps -f -U pierre
+ ```
+
+ - Priorité des processus : nice
+
+ - Foreground / Background
+   - par défaut un processus est lancé en foregrond => ne rend pas la main : 
+      - CRTL+C pour quitter
+      - CTRL+Z pour le stopper (sans le killer)
+      - jobs pour afficher les processus stoppés oiu lancés en background
+      - fg [id] => reprise du processus en foreground
+      - bg [id] => reprise du processus en background
+
+   - Déclenchement d'un processus en background : & et nohup
+      - ./monscript & => /!\ le programme peut être killer en cas de perte de session
+      - nohup ./monscript & => processus complètement détaché du processus parent utilisateur (pas de kill si perte de session)
+
+
+ 
+
