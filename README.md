@@ -508,3 +508,51 @@ $ df -hT
   DEVELOP ALL=(pierre:pierre) DEVELOP_CMD
   DEVELOP ALL=(root:root) DEVELOP_CMD2
   ```
+
+## Expression regulières
+
+- Utilisation dans les outils  : grep, awk, sed, bash
+
+- Elements syntaxique des expressions régulière
+
+    - grep -n --color "[bB][ao]b" exp.txt (affiche toutes les lignes contenant b et un numéro de ligne dans le fichier exp.txt)
+
+    - grep -n --color "v[0-9]\{2,8\}:" exp.txt (affiche tous les mo)
+    - grep -i --color "bab$" exp.txt   (affiche les lignes strictement contenan 'bab')
+    - grep -c -v "." exp.txt (affiche les lignes vide)
+    - grep -c "." exp.txt (affiche les lignes non vide)
+
+    - "^$" (les lignes vide)
+    - "^bab$" (les lignes strictement contenant bab)
+    - "." (ligne qui contient au moins 1 caractère)
+
+grep -E --color "bon(jour|soir)" exp.txt (trouver bonojour et bonsoir dans le fichier exp.txt)
+grep -E --color "(t[aeioué])\1" exp.txt (voir en référence arrière)
+
+---------------Consigne pour les expressions régulières---------------
+
+-> Extraire d'un fichier les lignes ne contenant qu'une valeur entière positive
+
+    ```
+    grep  "^[0-9]\{1,\}$" tp
+    grep -E "^[0-9]{1,}$" tp
+    grep -E "^[0-9]+$" tp.txt
+    ```
+    
+-> Extraire d'un fichier les lignes ne contenant qu'une valeur entière (positive ou négative)
+  
+  ```
+  grep -E "^-?[0-9]+$" tp.txt
+  ```
+
+-> Extraire d'un fichier les lignes ne contenant qu'une valeur numérique (entière, décimale, positive ou négative)                                     
+  
+  ```
+  grep -E "^-?[0-9]+([,.][0-9]+)?$" tp.txt
+  ```
+  
+-> Représenter une valeur numérique de 0 à 255
+
+  ```
+  grep -E "^([1-9]?[0-9]|1[0-9]{2}|2[0-4][0-9]|25[0-5])$" tp.txt
+  ```
