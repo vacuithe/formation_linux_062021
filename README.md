@@ -447,6 +447,32 @@ $ df -hT
       - ./monscript & => /!\ le programme peut être killer en cas de perte de session
       - nohup ./monscript & => processus complètement détaché du processus parent utilisateur (pas de kill si perte de session)
 
+## Analyse systeme
 
+- top/htop
+- vmstat (global)
+- netstat
+- nc
+- iostat
+- iperf
+- lsof
+
+## Logs système
+
+- Outils par défaut : rsyslog
+  - config : /etc/rsyslog.conf
+  - custom config log : /etc/rsyslog.d/*.conf
+  - Gestion des logs systeme via facility.priority
+  - Commande logger pour entrer des outputs dans rsyslog
+
+- Rotation des logs : logrotate
+
+  - /usr/sbin/logrotate /etc/logrotate.conf => lancé par cron.daily
+  - repertoire de conf : /etc/logrotate.d/*
+
+
+- Mécanique de log implément&e par systemd : journald
+  - /etc/systemd/journald.conf
+  - commande : journalctl
  
 
